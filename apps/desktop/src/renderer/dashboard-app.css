@@ -1,0 +1,8 @@
+#aod-dashboard-preview .window{min-height:100vh;border:0;border-radius:0;box-shadow:none}
+#aod-dashboard-preview .dashboard-logo-frame .logo{width:160px;height:160px;left:-7px;top:-55px}
+#aod-dashboard-preview.collapsed .dashboard-logo-frame .logo{width:180px;height:180px;left:-8px;top:-65px}
+#aod-dashboard-preview .balance-panel{min-height:222px}
+#aod-dashboard-preview .chart-wrap{height:165px}
+#aod-dashboard-preview .chart-panel{padding-top:17px;padding-bottom:10px}
+#aod-dashboard-preview .content{padding-top:22px;padding-bottom:20px}
+@media(max-width:800px){#aod-dashboard-preview .dashboard-logo-frame .logo{width:180px;height:180px;left:-8px;top:-65px}}

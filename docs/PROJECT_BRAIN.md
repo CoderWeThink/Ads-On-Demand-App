@@ -14,7 +14,7 @@ Ads on Demand is a Windows desktop product where users voluntarily choose sponso
 | Clear sponsorship | Every ad surface visibly says it is sponsored. |
 | Privacy by design | Do not collect browsing history, keystrokes, screenshots, passwords, microphone data, or unrelated personal data. |
 | Separate roles | Regular users primarily use the Windows app; advertisers and administrators primarily use web workspaces. |
-| Honest money language | Until payouts exist, balances are development credits and cannot be withdrawn. |
+| Honest money language | Display USD only, with $0.00 until verified earnings exist. No simulated balances or withdrawals. |
 | Safety controls are free | Plus can never remove a user’s free pause, close, reporting, or opt-out controls. |
 
 ## 3. Locked product decisions
@@ -120,7 +120,9 @@ Approved copy: “YOUR DESKTOP, YOUR ADS.”; bold “Ads you actually want.” 
 
 On 2026-09-17, the user explicitly confirmed the supplied blue A / ad-window / cursor image with the `Ads on Demand` wordmark as the logo to use. The exact supplied asset is stored at `assets/branding/ads-on-demand-approved-logo.png` and is the source for future app branding. The agreed next build group is brand integration, a local demo dashboard, a dock manager, one opt-in native dock proof of concept, and a tested portable update. See `REAL_APP_BUILD_PLAN.md`.
 
-The revised dashboard preview is now the approved working direction. It removes preview/developer controls, replaces credits with USD-only `$0.00` fallback values, replaces Home activity with a trading-style line/area earnings chart, uses a visual dock preview, limits free accounts to one running dock, renames `My Docks` to `Docks`, adds a collapsible sidebar, and changes `Pause all` to confirmation-based `Close all`. These preview decisions are not yet implemented in the Electron renderer and must not be pushed until the user asks.
+Version 0.2.0 combines the welcome/sign-in/create-account screens with the approved dashboard as a local interactive preview. The user authorized implementation and a new GitHub EXE release. Both forms use a minimum of five characters, with an explicit local-preview explanation: credentials are not authenticated, stored, or sent. Sign-out returns to the welcome screen. The new supplied transparent logo is used without background removal.
+
+The dashboard now has USD-only $0.00 balances, a zero-value earnings chart with 7D/30D/90D/All ranges, a visual dock preview, Running/Stopped status, collapsible navigation, Close all confirmation, and Activity event history for this session. Docks includes Image, Quick Question, Survey, and Video formats; only one preview runs at a time. Video is a format preview, not a connected video advertising service. Native always-on-top docks, production accounts, profile/settings services, billing, and payouts remain pending.
 
 - [x] Product direction agreed.
 - [x] Technology direction agreed.

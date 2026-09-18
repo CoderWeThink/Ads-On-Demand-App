@@ -1,5 +1,5 @@
 {
-  "name": "ads-on-demand", "version": "0.1.1", "private": true,
+  "name": "ads-on-demand", "version": "0.2.0", "private": true,
   "description": "Ads on Demand Windows welcome screen", "author": "Ads on Demand",
   "main": "dist/main/main.js",
   "scripts": { "build": "tsc -p tsconfig.main.json && vite build", "check": "tsc --noEmit && tsc -p tsconfig.main.json --noEmit", "start": "electron .", "portable": "pnpm build && electron-builder --win portable --x64" },

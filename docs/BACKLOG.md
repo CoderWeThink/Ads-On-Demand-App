@@ -31,7 +31,8 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 
 - [ ] **In progress** Use the approved supplied `ads-on-demand-approved-logo.png` asset for the app identity. The welcome screen is complete; Windows icon packaging remains.
 - [ ] **Ready** Integrate the new app identity into the welcome screen, window icon, and packaged EXE.
-- [ ] **In progress** Implement the revised local dashboard shell from the verified interactive preview: USD-only `$0.00` fallback, earnings line chart, real dock preview, collapsible navigation, and `Close all` confirmation.
+- [x] **Done** Implement the revised local dashboard shell from the interactive preview: USD-only `$0.00` fallback, earnings line chart, dock preview, collapsible navigation, and `Close all` confirmation. Combined with local welcome flow in v0.2.0.
+- [x] **Done** Include Image, Quick Question, Survey, and Video formats in the local Docks preview with one running preview at a time.
 - [ ] **Ready** Build a local-only Docks manager that can save multiple configurations but run only one dock at a time; starting another stops the current dock.
 - [ ] **Ready** Build and test one user-enabled, visibly Sponsored native dock proof of concept.
 - [ ] **Ready** Verify the full demo flow and package the next portable Windows EXE.

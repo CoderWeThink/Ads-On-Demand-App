@@ -1,5 +1,7 @@
 # Ads on Demand Decision Log
 
+2026-09-17: User authorized v0.2.0 combining completed welcome screens and dashboard in a new downloadable EXE release. Use the newly supplied transparent logo directly. Set both local sign-in/create-account forms to a five-character minimum. Because production authentication is not connected, explain local preview access on the welcome screen and do not retain credentials. Include Video Dock alongside image, question, and survey examples. Dock controls in this milestone affect the in-app preview; native desktop overlays remain the next implementation milestone.
+
 This is the short, chronological decision history. For current requirements, use `PROJECT_BRAIN.md`.
 
 2026-09-17: User narrowed the first executable to the agreed welcome screen only. Build a portable Windows x64 EXE. Include sign-in/create-account screen states, with honest unavailable-account messages. Do not implement dashboard, docks, or backend in this increment. Background remains replaceable.
