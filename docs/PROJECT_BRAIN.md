@@ -48,7 +48,7 @@ Ads on Demand is a Windows desktop product where users voluntarily choose sponso
 3. Opens the normal Windows dashboard.
 4. Chooses dock formats, location, size, and preferences.
 5. Starts, pauses, moves, closes, reports, or disables docks at any time.
-6. Views device status, recent activity, and a clearly labeled development earnings ledger.
+6. Views device status, a USD earnings overview/chart, and a separate activity history. Until verified backend earnings exist, every money value is `$0.00`; never substitute credits or sample money.
 7. Can explore Plus controls, which are visibly marked Coming soon.
 
 ### Advertiser
@@ -67,7 +67,10 @@ Ads on Demand is a Windows desktop product where users voluntarily choose sponso
 ## 5. Desktop app requirements
 
 - Secure Electron application with context isolation and a narrow, typed preload bridge.
-- Normal dashboard window with overview, earnings, docks, device, profile, settings, account, and Plus pages.
+- Normal dashboard window with overview, earnings, Docks, Activity, device, profile, settings, account, and Plus pages.
+- Free users may save multiple dock configurations but can run only one at a time. Starting another dock automatically stops the current dock; multiple running docks may be a Plus feature later.
+- Home shows the running dock as inspectable product UI, with green Running or red Stopped state. `Close all` requires confirmation and can only close; docks start from the Docks page.
+- Home uses a line/area earnings chart with 7D, 30D, 90D, and All ranges. Activity remains a separate page.
 - One native dock window per active dock; each is visibly sponsored and contains controls for pause, close, placement, report, and settings.
 - Dock preferences persist per device and restore only when the user has opted in.
 - No auto-start by default; startup behavior is an explicit opt-in setting.
@@ -107,13 +110,15 @@ Electron Windows app            ├─ campaigns / creative / moderation
 
 ## 8. Current milestone
 
-**Milestone 1B — Brand, dashboard, and first dock plan (2026-09-17)**
+**Milestone 1B — Brand, dashboard, and first dock design (2026-09-17)**
 
 User authorized only the decided welcome screen in a portable executable. React + TypeScript renderer and isolated Electron window are implemented. No dashboard, docks, account backend, billing, or payouts are included. Authentication actions explain that services are coming soon and do not transmit or persist credentials. The background is bundled locally and replaceable. Packaging and native verification are complete: `release/Ads-on-Demand.exe` launches independently, and the welcome/create-account screens were inspected in Windows. See `WELCOME_BUILD.md` for the checksum, validation, and limitations. Next work requires the user's choice of the next screen or feature.
 
 Approved copy: “YOUR DESKTOP, YOUR ADS.”; bold “Ads you actually want.” with only “actually” blue; “Pick ads that fit your interests and earn in ways that are easier than ever before.”; bold “Welcome back.” No left-panel privacy badge.
 
 On 2026-09-17, the user explicitly confirmed the supplied blue A / ad-window / cursor image with the `Ads on Demand` wordmark as the logo to use. The exact supplied asset is stored at `assets/branding/ads-on-demand-approved-logo.png` and is the source for future app branding. The agreed next build group is brand integration, a local demo dashboard, a dock manager, one opt-in native dock proof of concept, and a tested portable update. See `REAL_APP_BUILD_PLAN.md`.
+
+The revised dashboard preview is now the approved working direction. It removes preview/developer controls, replaces credits with USD-only `$0.00` fallback values, replaces Home activity with a trading-style line/area earnings chart, uses a visual dock preview, limits free accounts to one running dock, renames `My Docks` to `Docks`, adds a collapsible sidebar, and changes `Pause all` to confirmation-based `Close all`. These preview decisions are not yet implemented in the Electron renderer and must not be pushed until the user asks.
 
 - [x] Product direction agreed.
 - [x] Technology direction agreed.

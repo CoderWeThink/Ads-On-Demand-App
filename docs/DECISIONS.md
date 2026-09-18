@@ -10,6 +10,8 @@ This is the short, chronological decision history. For current requirements, use
 
 2026-09-17: Version 0.1.1 replaces the temporary CSS A mark on the welcome screen with the exact approved user-supplied logo asset. Windows icon derivation remains part of the next branding step.
 
+2026-09-17: The signed-in dashboard direction was revised and approved for preview. Display money only in USD and show `$0.00` until verified backend earnings exist—never simulated credits or sample money. Free users may save multiple dock configurations but run only one at a time; starting another automatically stops the current dock. The Home dock panel uses a real dock preview with Running/Stopped status, the stopped state is red, `Close all` requires confirmation and never resumes docks, and docks can start only from the Docks page. Recent activity is replaced on Home by a line/area earnings chart with 7D, 30D, 90D, and All ranges; Activity remains its own navigation page. The sidebar is collapsible, `My Docks` is renamed `Docks`, and multiple running docks are mentioned only as a small Plus Coming soon note.
+
 | Date | Decision | Reason / impact |
 | --- | --- | --- |
 | 2026-09-17 | Build toward the real finished product in controlled milestones. | The app will not be limited to a throwaway showcase; payout and billing remain separate later milestones. |

@@ -31,8 +31,8 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 
 - [ ] **In progress** Use the approved supplied `ads-on-demand-approved-logo.png` asset for the app identity. The welcome screen is complete; Windows icon packaging remains.
 - [ ] **Ready** Integrate the new app identity into the welcome screen, window icon, and packaged EXE.
-- [ ] **Ready** Build the local demo dashboard shell and navigation.
-- [ ] **Ready** Build a local-only My docks manager with optional demo formats, corner placement, and Pause all.
+- [ ] **In progress** Implement the revised local dashboard shell from the verified interactive preview: USD-only `$0.00` fallback, earnings line chart, real dock preview, collapsible navigation, and `Close all` confirmation.
+- [ ] **Ready** Build a local-only Docks manager that can save multiple configurations but run only one dock at a time; starting another stops the current dock.
 - [ ] **Ready** Build and test one user-enabled, visibly Sponsored native dock proof of concept.
 - [ ] **Ready** Verify the full demo flow and package the next portable Windows EXE.
 
@@ -42,7 +42,7 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 - [ ] **Ready** Build native always-on-top dock windows with obvious Sponsored labeling.
 - [ ] **Ready** Add report-ad and dock settings flows.
 - [ ] **Ready** Persist user-selected layout per registered device.
-- [ ] **Ready** Test one-monitor and multi-monitor behavior, restart recovery, pause-all, and normal dashboard minimize/close behavior.
+- [ ] **Ready** Test one-monitor and multi-monitor behavior, restart recovery, Close all, and normal dashboard minimize/close behavior.
 
 ## Milestone 4 — Marketplace connection
 
@@ -53,7 +53,7 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 
 ## Milestone 5 — Ledger and Plus preparation
 
-- [ ] **Ready** Add immutable development-credit ledger and earnings history UI.
+- [ ] **Ready** Add the immutable earnings ledger and USD history UI. Until verified backend data exists, show `$0.00`; do not display simulated credits or sample money.
 - [ ] **Ready** Add Plus Coming soon screen, entitlement model, and feature gates without checkout or charges.
 - [ ] **Later** Add real subscription billing only after a separate billing plan and provider decision.
 - [ ] **Later** Add withdrawals only after a dedicated payments, compliance, fraud, and support milestone.
