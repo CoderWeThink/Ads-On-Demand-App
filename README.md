@@ -1,5 +1,11 @@
 # Ads on Demand — Production App
 
+## Download the current preview
+
+[Ads on Demand 0.2.0 for Windows x64](https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.2.0)
+
+Open Assets and download `Ads-on-Demand-0.2.0-Windows-x64.exe`. This single file includes the welcome, sign-in/create-account screens, and interactive dashboard. Use any valid email and a password of five or more characters for local preview access. Credentials are not saved or sent; production account services and native desktop dock windows are still pending. Repository collaborator access is required for this private download. See [release details](docs/RELEASE_0.2.0.md).
+
 This folder is the command center for the real Ads on Demand desktop app. It is intentionally organized before application code is written, so the website, desktop app, API, database, and business rules grow from one shared plan.
 
 ## What belongs here

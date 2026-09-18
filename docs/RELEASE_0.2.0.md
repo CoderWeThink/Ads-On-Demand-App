@@ -1,5 +1,9 @@
 # Ads on Demand 0.2.0 — Dashboard Preview
 
+Release: https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.2.0
+
+SHA-256: `c7187d5b0187659d407927593ec69e748523a35adde7b3c201f4ea51f74bdc72`
+
 This Windows x64 portable build combines the existing welcome/sign-in/create-account UI and the approved dashboard. The supplied transparent logo is used directly, without background removal. Both forms accept passwords of at least five characters.
 
 ## Try it
