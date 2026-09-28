@@ -2,9 +2,9 @@
 
 ## Download the current preview
 
-[Ads on Demand 0.3.0 for Windows x64](https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.3.0)
+[Ads on Demand 0.3.1 for Windows x64](https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.3.1)
 
-Open Assets and choose `Ads-on-Demand-Setup.exe` for a normal installation or `Ads-on-Demand-Portable.exe` for a single-file build. This release includes the welcome flow, dashboard, system tray, and real native always-on-top Image, Video, Question, and Survey dock windows. Use any valid email and a password of five or more characters for local preview access. Credentials are not saved or sent; production accounts, live ads, and real earnings are not connected. Repository collaborator access is required for this private download. See [release details](docs/RELEASE_0.3.0.md).
+Open Assets and choose `Ads-on-Demand-Setup.exe` for a normal installation or `Ads-on-Demand-Portable.exe` for a single-file build. This release includes the welcome flow, dashboard, system tray, and real native always-on-top Image, Video, Question, and Survey dock windows. Version 0.3.1 fixes the background lifecycle: closing the dashboard with no active dock now exits completely, while an active dock may continue in the tray. Use any valid email and a password of five or more characters for local preview access. Credentials are not saved or sent; production accounts, live ads, and real earnings are not connected. Repository collaborator access is required for this private download. See [release details](docs/RELEASE_0.3.1.md).
 
 This folder is the command center for the real Ads on Demand desktop app. It is intentionally organized before application code is written, so the website, desktop app, API, database, and business rules grow from one shared plan.
 
@@ -32,7 +32,7 @@ This folder is the command center for the real Ads on Demand desktop app. It is 
 
 ### Run the portable app
 
-Double-click `release/Ads-on-Demand-Portable.exe` on Windows x64, or run `release/Ads-on-Demand-Setup.exe` to install it. No Node.js, server, or internet connection is needed by this local preview. The build is unsigned, so Windows SmartScreen may warn. By default, closing the dashboard hides it to the system tray; use Quit in the tray or Settings to end the app and close the running dock.
+Double-click `release/Ads-on-Demand-Portable.exe` on Windows x64, or run `release/Ads-on-Demand-Setup.exe` to install it. No Node.js, server, or internet connection is needed by this local preview. The build is unsigned, so Windows SmartScreen may warn. Closing the dashboard quits completely when no dock is active. When a dock is active, closing the dashboard hides it to the tray so the dock can continue; closing that final dock then exits the background process automatically.
 
 ### Build from source
 

@@ -72,7 +72,7 @@ Ads on Demand is a Windows desktop product where users voluntarily choose sponso
 - Home shows the running dock as inspectable product UI, with green Running or red Stopped state. `Close all` requires confirmation and can only close; docks start from the Docks page.
 - Home uses a line/area earnings chart with 7D, 30D, 90D, and All ranges. Activity remains a separate page.
 - One native dock window per active dock; each is visibly sponsored and has no ordinary title-bar, minimize, maximize, fullscreen, or close buttons. Placement and closing are controlled from the app so the dock remains a clean ad surface; reporting/settings remain future app controls.
-- By default, closing the dashboard hides it to the system tray while a running dock stays visible and the app keeps running. The tray or Settings page provides an explicit Quit action. This background behavior is configurable.
+- Closing the dashboard quits the app whenever no dock is running. When a dock is active, the configurable background option may hide the dashboard to the system tray and keep only that dock running. Closing the final dock while the dashboard is hidden automatically quits the background process. The tray or Settings page also provides an explicit Quit action.
 - Dock preferences persist per device and restore only when the user has opted in.
 - No auto-start by default; startup behavior is an explicit opt-in setting.
 - Docks must not impersonate Windows notifications or capture user input outside their own UI.
@@ -119,7 +119,9 @@ The secure Electron main process, narrow preload bridge, local encrypted state, 
 
 Image, Video, Quick Question, and Survey dock surfaces are implemented as real dock UI. Question and survey answers are restricted to supplied options, saved encrypted on the device, visible in Activity/Settings, and protected against duplicate submissions. They are not uploaded because the production API and database are not connected.
 
-Closing the dashboard hides it to the tray by default and leaves a running dock visible. The tray can reopen the dashboard, close the dock, or explicitly quit. Background behavior, launch at login, and restore-last-dock are user settings; launch and restore are off by default. Explicit Quit closes every window and the tray process.
+Closing the dashboard hides it to the tray by default only while a dock is running. With no active dock, closing the dashboard quits the application completely. Closing the final dock from the tray while the dashboard is hidden also quits the process automatically. The tray can reopen the dashboard, close the dock, or explicitly quit. Background behavior, launch at login, and restore-last-dock are user settings; launch and restore are off by default. Explicit Quit closes every window and the tray process.
+
+Version 0.3.1 fixes the run-in-background lifecycle so a dock is now required for background operation. See `RELEASE_0.3.1.md`.
 
 The dashboard has USD-only `$0.00` balances, a zero-value earnings chart, Running/Stopped dock status, a collapsible sidebar, Activity history, and Settings. It intentionally has no simulated income, production accounts, ad delivery, billing, or withdrawals. Local preview sign-in does not authenticate, transmit, or retain credentials.
 

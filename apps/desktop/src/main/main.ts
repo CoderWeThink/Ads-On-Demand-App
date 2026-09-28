@@ -18,6 +18,7 @@ class AppController {
   private readonly store = new StateStore();
   private activeConfigurationId: string | null = null;
   private isQuitting = false;
+  private dashboardHiddenToTray = false;
   private repositionOrigin: DockBounds | null = null;
   private placementPreviewOrigin: DockBounds | null = null;
 
@@ -52,7 +53,12 @@ class AppController {
     win.on('close', event => {
       if (this.isQuitting) return;
       event.preventDefault();
+      if (!this.isDockRunning()) {
+        void this.quitApplication();
+        return;
+      }
       if (this.store.snapshot().settings.continueInBackground) {
+        this.dashboardHiddenToTray = true;
         win.hide();
         this.updateTray();
         return;
@@ -64,7 +70,11 @@ class AppController {
       }).then(result => { if (result.response === 1) void this.quitApplication(); });
     });
     win.once('ready-to-show', () => win.show());
-    win.on('closed', () => { this.dashboardWindow = null; });
+    win.on('closed', () => {
+      this.dashboardWindow = null;
+      this.dashboardHiddenToTray = this.isDockRunning();
+      if (!this.isQuitting && !this.isDockRunning()) void this.quitApplication();
+    });
     this.dashboardWindow = win;
     void win.loadFile(path.join(__dirname, '../renderer/index.html'));
   }
@@ -84,7 +94,7 @@ class AppController {
 
   private updateTray() {
     if (!this.tray) return;
-    const running = Boolean(this.activeConfigurationId && this.dockWindow && !this.dockWindow.isDestroyed());
+    const running = this.isDockRunning();
     this.tray.setContextMenu(Menu.buildFromTemplate([
       { label: 'Open Ads on Demand', click: () => this.openDashboard() },
       { type: 'separator' },
@@ -98,6 +108,7 @@ class AppController {
   openDashboard() {
     if (!this.dashboardWindow || this.dashboardWindow.isDestroyed()) this.createDashboardWindow();
     const win = this.dashboardWindow!;
+    this.dashboardHiddenToTray = false;
     if (win.isMinimized()) win.restore();
     win.show();
     win.focus();
@@ -112,6 +123,14 @@ class AppController {
     await this.store.update(state => { state.cleanShutdown = true; });
     this.dashboardWindow?.destroy();
     app.quit();
+  }
+
+  private isDockRunning() {
+    return Boolean(this.activeConfigurationId && this.dockWindow && !this.dockWindow.isDestroyed());
+  }
+
+  private quitIfBackgroundIsIdle() {
+    if (this.dashboardHiddenToTray && !this.isDockRunning()) void this.quitApplication();
   }
 
   private registerDisplayRecovery() {
@@ -197,9 +216,14 @@ class AppController {
     win.on('move', () => { if (this.repositionOrigin) this.broadcastDockState(); });
     win.once('ready-to-show', () => win.showInactive());
     win.on('closed', () => {
-      if (this.dockWindow === win) this.dockWindow = null;
-      this.updateTray();
-      this.broadcastDockState();
+      if (this.dockWindow !== win) return;
+      this.dockWindow = null;
+      this.activeConfigurationId = null;
+      void this.store.update(state => { state.lastRunningConfigurationId = null; }).finally(() => {
+        this.updateTray();
+        this.broadcastAll();
+        this.quitIfBackgroundIsIdle();
+      });
     });
     this.dockWindow = win;
     void win.loadFile(path.join(__dirname, '../renderer/index.html'), { query: { surface: 'dock' } });
@@ -241,7 +265,9 @@ class AppController {
     });
     this.updateTray();
     this.broadcastAll();
-    return this.getDockState();
+    const dockState = this.getDockState();
+    this.quitIfBackgroundIsIdle();
+    return dockState;
   }
 
   getDockState(): DockState {

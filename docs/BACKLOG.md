@@ -44,6 +44,7 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 - [ ] **Ready** Add report-ad and dock settings flows.
 - [ ] **In progress** Persist user-selected layout locally. API/device synchronization remains pending.
 - [ ] **In progress** Test monitor recovery, restart recovery, Close all, tray/background behavior, and explicit Quit. Automated multi-monitor coverage remains pending.
+- [x] **Done** Fix idle background lifecycle: closing the dashboard with no active dock quits, and closing the final dock while the dashboard is hidden quits the remaining tray process.
 
 ## Milestone 4 — Marketplace connection
 
