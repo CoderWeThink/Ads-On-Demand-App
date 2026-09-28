@@ -22,28 +22,28 @@ Status key: **Ready** = agreed and safe to start. **Blocked** = needs an account
 - [x] Implement the approved welcome/sign-in design in Electron + React + TypeScript; real authentication remains pending.
 - [x] Package and verify the portable welcome-screen EXE (0.1.0, 2026-09-17).
 
-- [ ] **Ready** Build the secure Electron main process, preload bridge, and renderer shell.
-- [ ] **Ready** Build sign-in, onboarding, profile consent, dashboard overview, account, and settings screens.
+- [x] **Done** Build the secure Electron main process, narrow preload bridge, renderer shell, and encrypted local state.
+- [ ] **In progress** Build sign-in, onboarding, profile consent, dashboard overview, account, and settings screens. Local preview sign-in, dashboard, Activity, and Settings are present; production authentication/onboarding remain pending.
 - [ ] **Ready** Add device registration and a normal Windows dashboard window.
-- [ ] **Ready** Add local encrypted session storage and explicit account sign-out.
+- [x] **Done** Add encrypted local app state, local response storage, explicit preview sign-out, and explicit application Quit.
 
 ## Next build group — Brand, dashboard, and first dock
 
-- [ ] **In progress** Use the approved supplied `ads-on-demand-approved-logo.png` asset for the app identity. The welcome screen is complete; Windows icon packaging remains.
-- [ ] **Ready** Integrate the new app identity into the welcome screen, window icon, and packaged EXE.
+- [x] **Done** Use the approved supplied logo for the app identity, dark wordmark, Windows icon, taskbar, tray, and packaged executables.
+- [x] **Done** Integrate the new app identity into the welcome screen, signed-in interface, window icon, and packaged EXE.
 - [x] **Done** Implement the revised local dashboard shell from the interactive preview: USD-only `$0.00` fallback, earnings line chart, dock preview, collapsible navigation, and `Close all` confirmation. Combined with local welcome flow in v0.2.0.
 - [x] **Done** Include Image, Quick Question, Survey, and Video formats in the local Docks preview with one running preview at a time.
-- [ ] **Ready** Build a local-only Docks manager that can save multiple configurations but run only one dock at a time; starting another stops the current dock.
-- [ ] **Ready** Build and test one user-enabled, visibly Sponsored native dock proof of concept.
-- [ ] **Ready** Verify the full demo flow and package the next portable Windows EXE.
+- [x] **Done** Build a local-only Docks manager with one running dock at a time; starting another stops and replaces the current dock.
+- [x] **Done** Build and test user-enabled, visibly Sponsored native Image, Video, Quick Question, and Survey docks.
+- [x] **Done** Verify the full local demo flow and package branded installer and portable Windows executables as 0.3.0.
 
 ## Milestone 3 — Dock manager
 
-- [ ] **Ready** Build dock manager: format selection, monitor/location selection, size, visibility, pause, close, and restore preferences.
-- [ ] **Ready** Build native always-on-top dock windows with obvious Sponsored labeling.
+- [x] **Done** Build the local dock manager: format selection, monitor/location selection, scale, visibility, close, reposition, and restore preferences. Server synchronization remains pending.
+- [x] **Done** Build native always-on-top dock windows with obvious Sponsored labeling and no standard window chrome.
 - [ ] **Ready** Add report-ad and dock settings flows.
-- [ ] **Ready** Persist user-selected layout per registered device.
-- [ ] **Ready** Test one-monitor and multi-monitor behavior, restart recovery, Close all, and normal dashboard minimize/close behavior.
+- [ ] **In progress** Persist user-selected layout locally. API/device synchronization remains pending.
+- [ ] **In progress** Test monitor recovery, restart recovery, Close all, tray/background behavior, and explicit Quit. Automated multi-monitor coverage remains pending.
 
 ## Milestone 4 — Marketplace connection
 

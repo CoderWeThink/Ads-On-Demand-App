@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ArrowRight, Eye, EyeOff, X } from 'lucide-react';
-import approvedLogo from './approved-logo.png';
+import approvedLogo from './approved-dark-wordmark.png';
 import './styles.css';
 import './brand.css';
 import { Dashboard } from './Dashboard';
+import { DockSurface } from './DockSurface';
 
 function Welcome() {
   const [signedIn, setSignedIn] = useState(false);
@@ -42,4 +43,5 @@ function Welcome() {
     </section>
   </main>;
 }
-createRoot(document.getElementById('root')!).render(<React.StrictMode><Welcome/></React.StrictMode>);
+const isDockSurface = new URLSearchParams(window.location.search).get('surface') === 'dock';
+createRoot(document.getElementById('root')!).render(<React.StrictMode>{isDockSurface ? <DockSurface/> : <Welcome/>}</React.StrictMode>);

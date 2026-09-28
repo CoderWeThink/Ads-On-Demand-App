@@ -71,7 +71,8 @@ Ads on Demand is a Windows desktop product where users voluntarily choose sponso
 - Free users may save multiple dock configurations but can run only one at a time. Starting another dock automatically stops the current dock; multiple running docks may be a Plus feature later.
 - Home shows the running dock as inspectable product UI, with green Running or red Stopped state. `Close all` requires confirmation and can only close; docks start from the Docks page.
 - Home uses a line/area earnings chart with 7D, 30D, 90D, and All ranges. Activity remains a separate page.
-- One native dock window per active dock; each is visibly sponsored and contains controls for pause, close, placement, report, and settings.
+- One native dock window per active dock; each is visibly sponsored and has no ordinary title-bar, minimize, maximize, fullscreen, or close buttons. Placement and closing are controlled from the app so the dock remains a clean ad surface; reporting/settings remain future app controls.
+- By default, closing the dashboard hides it to the system tray while a running dock stays visible and the app keeps running. The tray or Settings page provides an explicit Quit action. This background behavior is configurable.
 - Dock preferences persist per device and restore only when the user has opted in.
 - No auto-start by default; startup behavior is an explicit opt-in setting.
 - Docks must not impersonate Windows notifications or capture user input outside their own UI.
@@ -110,19 +111,19 @@ Electron Windows app            ├─ campaigns / creative / moderation
 
 ## 8. Current milestone
 
-**Milestone 1B — Brand, dashboard, and first dock design (2026-09-17)**
+**Milestone 2A — Native dock and background-mode release candidate (2026-09-27)**
 
-User authorized only the decided welcome screen in a portable executable. React + TypeScript renderer and isolated Electron window are implemented. No dashboard, docks, account backend, billing, or payouts are included. Authentication actions explain that services are coming soon and do not transmit or persist credentials. The background is bundled locally and replaceable. Packaging and native verification are complete: `release/Ads-on-Demand.exe` launches independently, and the welcome/create-account screens were inspected in Windows. See `WELCOME_BUILD.md` for the checksum, validation, and limitations. Next work requires the user's choice of the next screen or feature.
+Version 0.3.0 is the first build that behaves like an Ads on Demand Windows app instead of an Electron-branded page. It uses the approved blue A / ad-window / cursor identity for the app executable, taskbar, tray, welcome screen, and signed-in interface. Windows metadata identifies the program as `Ads on Demand` version `0.3.0`.
 
-The unchanged welcome/sign-in/create-account build is available to authorized repository users from the private GitHub pre-release `v0.1.1`: `https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.1.1`. The downloadable asset is the tested Windows x64 portable EXE; it does not contain the newer dashboard preview.
+The secure Electron main process, narrow preload bridge, local encrypted state, normal dashboard window, system tray, and a separate native always-on-top dock window are implemented. The dock has no standard window controls and is managed from the Docks screen. Only one dock runs at a time; starting another replaces the current dock. Placement presets, monitor selection, scale, temporary drag-to-reposition mode, bounds recovery, and local persistence are included.
 
-Approved copy: “YOUR DESKTOP, YOUR ADS.”; bold “Ads you actually want.” with only “actually” blue; “Pick ads that fit your interests and earn in ways that are easier than ever before.”; bold “Welcome back.” No left-panel privacy badge.
+Image, Video, Quick Question, and Survey dock surfaces are implemented as real dock UI. Question and survey answers are restricted to supplied options, saved encrypted on the device, visible in Activity/Settings, and protected against duplicate submissions. They are not uploaded because the production API and database are not connected.
 
-On 2026-09-17, the user explicitly confirmed the supplied blue A / ad-window / cursor image with the `Ads on Demand` wordmark as the logo to use. The exact supplied asset is stored at `assets/branding/ads-on-demand-approved-logo.png` and is the source for future app branding. The agreed next build group is brand integration, a local demo dashboard, a dock manager, one opt-in native dock proof of concept, and a tested portable update. See `REAL_APP_BUILD_PLAN.md`.
+Closing the dashboard hides it to the tray by default and leaves a running dock visible. The tray can reopen the dashboard, close the dock, or explicitly quit. Background behavior, launch at login, and restore-last-dock are user settings; launch and restore are off by default. Explicit Quit closes every window and the tray process.
 
-Version 0.2.0 combines the welcome/sign-in/create-account screens with the approved dashboard as a local interactive preview. The user authorized implementation and a new GitHub EXE release. Both forms use a minimum of five characters, with an explicit local-preview explanation: credentials are not authenticated, stored, or sent. Sign-out returns to the welcome screen. The new supplied transparent logo is used without background removal.
+The dashboard has USD-only `$0.00` balances, a zero-value earnings chart, Running/Stopped dock status, a collapsible sidebar, Activity history, and Settings. It intentionally has no simulated income, production accounts, ad delivery, billing, or withdrawals. Local preview sign-in does not authenticate, transmit, or retain credentials.
 
-The dashboard now has USD-only $0.00 balances, a zero-value earnings chart with 7D/30D/90D/All ranges, a visual dock preview, Running/Stopped status, collapsible navigation, Close all confirmation, and Activity event history for this session. Docks includes Image, Quick Question, Survey, and Video formats; only one preview runs at a time. Video is a format preview, not a connected video advertising service. Native always-on-top docks, production accounts, profile/settings services, billing, and payouts remain pending.
+Release outputs are `release/Ads-on-Demand-Setup.exe` and `release/Ads-on-Demand-Portable.exe`. Both are Windows x64 and unsigned, so SmartScreen may warn. See `RELEASE_0.3.0.md` for exact hashes and validation.
 
 - [x] Product direction agreed.
 - [x] Technology direction agreed.
@@ -131,6 +132,9 @@ The dashboard now has USD-only $0.00 balances, a zero-value earnings chart with 
 - [x] Initialize the desktop welcome-screen code after user restart approval.
 - [x] Record the next logo direction and ordered next-build group.
 - [x] Integrate the exact approved logo asset into the welcome screen (version 0.1.1).
+- [x] Build the secure Electron main/preload shell and encrypted local state.
+- [x] Build and verify one-at-a-time native always-on-top docks and background tray behavior.
+- [x] Package the branded 0.3.0 installer and portable Windows executables.
 
 ## 9. Deferred milestones and risks
 

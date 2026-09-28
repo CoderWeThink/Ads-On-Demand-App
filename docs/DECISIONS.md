@@ -1,5 +1,11 @@
 # Ads on Demand Decision Log
 
+2026-09-27: Version 0.3.0 is the first native-dock and background-mode testing release. Use the approved logo across the dashboard, installer metadata, executable, taskbar, and tray. A free user may run only one native dock at a time. Docks are separate frameless always-on-top windows without minimize, maximize, fullscreen, or close chrome; the Docks page is the control surface for starting, replacing, repositioning, and closing them. Closing the dashboard hides it to the tray by default and leaves the dock running; an explicit tray/Settings Quit ends the process and closes the dock. Background mode is configurable, while launch at login and restore-last-dock default off.
+
+2026-09-27: Quick Question and Survey responses in the 0.3.0 preview are limited to predefined options, encrypted with Electron `safeStorage`, and retained locally for Activity and Settings. Duplicate answers are rejected. No response, credential, impression, or earnings data is transmitted because the production API is not connected. The release shows only real USD-shaped values at `$0.00`, never credits or simulated earnings.
+
+2026-09-27: Publish both a Windows x64 installer and a portable executable for 0.3.0. The files remain unsigned private-testing artifacts until an organization code-signing certificate and hosted update channel exist; release notes must disclose the likely SmartScreen warning and the absence of production accounts, live ads, and payouts.
+
 2026-09-17: User authorized v0.2.0 combining completed welcome screens and dashboard in a new downloadable EXE release. Use the newly supplied transparent logo directly. Set both local sign-in/create-account forms to a five-character minimum. Because production authentication is not connected, explain local preview access on the welcome screen and do not retain credentials. Include Video Dock alongside image, question, and survey examples. Dock controls in this milestone affect the in-app preview; native desktop overlays remain the next implementation milestone.
 
 This is the short, chronological decision history. For current requirements, use `PROJECT_BRAIN.md`.

@@ -2,9 +2,9 @@
 
 ## Download the current preview
 
-[Ads on Demand 0.2.0 for Windows x64](https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.2.0)
+[Ads on Demand 0.3.0 for Windows x64](https://github.com/CoderWeThink/Ads-On-Demand-App/releases/tag/v0.3.0)
 
-Open Assets and download `Ads-on-Demand-0.2.0-Windows-x64.exe`. This single file includes the welcome, sign-in/create-account screens, and interactive dashboard. Use any valid email and a password of five or more characters for local preview access. Credentials are not saved or sent; production account services and native desktop dock windows are still pending. Repository collaborator access is required for this private download. See [release details](docs/RELEASE_0.2.0.md).
+Open Assets and choose `Ads-on-Demand-Setup.exe` for a normal installation or `Ads-on-Demand-Portable.exe` for a single-file build. This release includes the welcome flow, dashboard, system tray, and real native always-on-top Image, Video, Question, and Survey dock windows. Use any valid email and a password of five or more characters for local preview access. Credentials are not saved or sent; production accounts, live ads, and real earnings are not connected. Repository collaborator access is required for this private download. See [release details](docs/RELEASE_0.3.0.md).
 
 This folder is the command center for the real Ads on Demand desktop app. It is intentionally organized before application code is written, so the website, desktop app, API, database, and business rules grow from one shared plan.
 
@@ -28,15 +28,15 @@ This folder is the command center for the real Ads on Demand desktop app. It is 
 
 ## Current status
 
-**Portable welcome-screen build.** The Windows app now contains the approved welcome/sign-in design and create-account state. Account services are not connected; no credentials are sent or saved. Other app milestones remain planned.
+**Native dock private preview.** The Windows app now contains the approved welcome flow, signed-in dashboard, encrypted local state, system tray/background mode, and separate always-on-top dock windows. Account services are not connected; no credentials are sent or saved. Live advertising, verified earnings, subscriptions, and payouts remain future milestones.
 
 ### Run the portable app
 
-Double-click `release/Ads-on-Demand.exe` on Windows x64. No Node.js, server, installer, or internet connection is needed by the packaged app. This development build is unsigned. It exits when you close its window; it does not enable startup or create shortcuts. Electron may write its normal cache to the Windows user profile, and the portable launcher extracts its runtime temporarily.
+Double-click `release/Ads-on-Demand-Portable.exe` on Windows x64, or run `release/Ads-on-Demand-Setup.exe` to install it. No Node.js, server, or internet connection is needed by this local preview. The build is unsigned, so Windows SmartScreen may warn. By default, closing the dashboard hides it to the system tray; use Quit in the tray or Settings to end the app and close the running dock.
 
 ### Build from source
 
-Use Node.js 24 and pnpm 11: `pnpm install`, `pnpm check`, then `pnpm portable`. The lockfile pins resolved dependencies. The output is `release/Ads-on-Demand.exe`; `pnpm start` opens the compiled app after `pnpm build`.
+Use Node.js 24 and pnpm 11: `pnpm install`, `pnpm check`, then `pnpm package:windows`. The lockfile pins resolved dependencies. Outputs are `release/Ads-on-Demand-Setup.exe` and `release/Ads-on-Demand-Portable.exe`; `pnpm start` opens the compiled app after `pnpm build`.
 
 ## Non-negotiables
 
